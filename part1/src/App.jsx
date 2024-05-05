@@ -25,15 +25,15 @@ const App = () => {
     )
   }
 
-  //const Header = ({ course }) => {
-    //return (
-      //<div>
-       // {course.map(course => (
-        //  <h1>{course.name}</h1>
-       // ))}
-    //  </div>
-   // )
- // }
+  const Parts = ({ parts }) => {
+    return (
+      <div>
+        {course.map(parts => (
+          <h1>{parts[0].name} {parts[0].exercises} </h1>
+        ))}
+      </div>
+    )
+  }
   
 
   console.log(course.name)
@@ -43,7 +43,8 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course.name} />
+      <Header course={course} />
+      <Parts part={course.parts} />
     </div>
   )
 }
