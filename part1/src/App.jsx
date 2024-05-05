@@ -1,46 +1,47 @@
 import React from 'react';
 
+// Define Header component
 const Header = ({ course }) => {
-  return (
-    <h1>{course}</h1>
-  );
-}
+  return <h1>{course}</h1>;
+};
 
-const Parts = ({ part1, part2, part3 }) => {
+// Define Parts component
+const Parts = ({ parts }) => {
   return (
     <div>
-      <p>{part1.name} {part1.exercises}</p>
-      <p>{part2.name} {part2.exercises}</p>
-      <p>{part3.name} {part3.exercises}</p>
+      {parts.map((part, index) => (
+        <p key={index}>{part.name} {part.exercises}</p>
+      ))}
     </div>
   );
-}
-
+};
 
 const App = () => {
   const course = 'Half Stack application development';
   const part1 = {
     name: 'Fundamentals of React',
     exercises: 10
-  }
+  };
   const part2 = {
     name: 'Using props to pass data',
     exercises: 7
-  }
+  };
   const part3 = {
     name: 'State of a component',
     exercises: 14
-  }
+  };
 
-  console.log(part1.name, part1.exercises, part2.name, part2.exercises, part3.name, part3.exercises)
+  // Array containing all parts
+  const allParts = [part1, part2, part3];
 
   return (
     <div>
+      {/* Render Header component */}
       <Header course={course} />
-      <Parts part1={part1} part2={part2} part3={part3} />
-      
+      {/* Render Parts component */}
+      <Parts parts={allParts} />
     </div>
   );
-}
+};
 
 export default App;
